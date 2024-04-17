@@ -1,0 +1,46 @@
+Import necessary libraries: cstdio, cstring
+Define a constant integer maxn as 10 + 5
+Define a 2D character array named table with dimensions maxn x maxn
+Define a 2D integer array named cnts with dimensions maxn x maxn
+Define integers r and c
+Define a function named isRe that takes integers x and y as input and returns a boolean:
+ If y is 0 or table[x][y-1] is '*', return true
+ Else, return false
+Define a function named isCe that takes integers x and y as input and returns a boolean:
+ If x is 0 or table[x-1][y] is '*', return true
+ Else, return false
+Define a function named Aoutput that takes integers x and y as input:
+ Print the formatted output "%3d.", cnts[x][y]
+ Iterate i from y to c-1:
+ If table[x][i] is '*', break the loop
+ Print table[x][i]
+ Print a new line
+Define a function named Doutput that takes integers x and y as input:
+ Print the formatted output "%3d.", cnts[x][y]
+ Iterate i from x to r-1:
+ If table[i][y] is '*', break the loop
+ Print table[i][y]
+ Print a new line
+Define the main function:
+ Initialize an integer variable puzzle as 0
+ Iterate until input is provided for r and r is not zero:
+ Read the input for c
+ Set all elements of table and cnts to null character and zero, respectively
+ Iterate i from 0 to r-1:
+ Read the input and store it in table[i]
+ Initialize an integer variable cnt as 0
+ Iterate i from 0 to r-1:
+ Iterate j from 0 to c-1:
+ If table[i][j] is not '*' and (isRe(i,j) or isCe(i,j)):
+ Increment cnt by 1 and assign it to cnts[i][j]
+ If puzzle is greater than 1, print a new line
+ Print the formatted output "puzzle #%d:\n", puzzle
+ Print the string "Across"
+ Iterate i from 0 to r-1:
+ Iterate j from 0 to c-1:
+ If cnts[i][j] is not zero and isRe(i,j), call the Aoutput function with i and j as input
+ Print the string "Down"
+ Iterate i from 0 to r-1:
+ Iterate j from 0 to c-1:
+ If cnts[i][j] is not zero and isCe(i,j), call the Doutput function with i and j as input
+Exit the program.
